@@ -32,11 +32,21 @@
       <h2>Dados dos Clientes</h2>
       <p>Informações coletadas para melhor atendê-los</p>
     </div>
-
-    <div id="clientDataDisplay" class="data-content">
-      <!-- Dados serão carregados via JavaScript -->
+  
+    <div id="clientDataDisplay" class="clients-grid">
+      <!-- Os cartões dos clientes serão adicionados aqui via JavaScript -->
+    </div>
+  
+    <!-- Modal de detalhes do cliente -->
+    <div class="modal" id="clientModal">
+      <div class="modal-content">
+        <span class="close-modal" onclick="document.getElementById('clientModal').style.display='none'">&times;</span>
+        <h3>Detalhes da Cliente</h3>
+        <div id="clientDetails" class="client-details-grid"></div>
+      </div>
     </div>
   </main>
+  
 
   <footer class="main-footer">
     <!-- Rodapé igual ao index.html -->
