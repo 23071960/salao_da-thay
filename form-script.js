@@ -1,32 +1,41 @@
-document.getElementById('clientForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Coletar dados do formulário
-    const formData = new FormData(this);
-    const clientData = {};
-    
-    // Processar dados do formulário
-    formData.forEach((value, key) => {
-      if (key === 'tipoCabelo') {
-        if (!clientData[key]) clientData[key] = [];
-        clientData[key].push(value);
-      } else {
-        clientData[key] = value;
-      }
+document.getElementById('clientForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+
+  const formData = new FormData(form);
+
+  // Captura os checkboxes manualmente e junta numa string
+  const tipoCabelo = Array.from(form.querySelectorAll('input[name="tipoCabelo"]:checked'))
+                          .map(el => el.value)
+                          .join(',');
+
+  formData.set('tipoCabelo', tipoCabelo); // substitui ou adiciona
+
+  try {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbx4xKAJLsaEdjsnOZo5EF1UJOM6P3k4_MxwjV1d1cVc4-lJ3Hh18f_kymt3ceBsMJ3j/exec', {
+      method: 'POST',
+      body: formData
+      // Não use headers aqui, o navegador define automaticamente para FormData
     });
-    
-    // Adicionar data/hora do cadastro
-    clientData.dataCadastro = new Date().toISOString();
-    
-    // Recuperar lista existente ou criar nova
-    let clientsList = JSON.parse(localStorage.getItem('salaoThayClients')) || [];
-    
-    // Adicionar novo cliente
-    clientsList.push(clientData);
-    
-    // Salvar no localStorage
-    localStorage.setItem('salaoThayClients', JSON.stringify(clientsList));
-    
-    // Redirecionar para a página de dados
-    window.location.href = 'dados_recebidos.html';
-  });
+
+    if (response.ok) {
+      alert('Ficha enviada com sucesso!');
+      form.reset();
+    } else {
+      const errorText = await response.text();
+      console.error('Erro ao enviar:', errorText);
+      alert('Erro ao enviar os dados.');
+    }
+  } catch (err) {
+    console.error('Erro na requisição:', err);
+    alert('Erro ao enviar os dados.');
+  }
+});
+
+// Preenche a data automaticamente no campo de data de hoje
+window.addEventListener('DOMContentLoaded', () => {
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('currentDate').value = today;
+});
+
