@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Clientes - Salão da Thay</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link rel="stylesheet" href="css/estilo-geral.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -32,52 +31,22 @@
     </div>
 
     <div id="clientDataDisplay" class="clients-grid">
-      <!-- Cartões de clientes inseridos aqui pelo JavaScript -->
+      <!-- Cartões de clientes serão inseridos aqui pelo JavaScript -->
     </div>
   </main>
+
+  <!-- Modal para detalhes do cliente -->
+  <div id="clientModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="clientDetails" class="detail-grid"></div>
+    </div>
+  </div>
 
   <footer class="main-footer">
     <p>© 2025 Salão da Thay. Todos os direitos reservados.</p>
   </footer>
 
-  <script>
-    const url = 'https://script.google.com/macros/s/AKfycbycQdygEYQ6TmRn_NBaRDVv57HJF3zf89_3fs6HIykeE7n_-XQ0kMn51jTvij8gTCQO/exec';
-
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        const display = document.getElementById("clientDataDisplay");
-
-        if (!data || data.length === 0) {
-          display.innerHTML = `
-            <div class="empty-state">
-              <i class="fas fa-user-slash"></i>
-              <p>Nenhum dado encontrado.</p>
-            </div>`;
-          return;
-        }
-
-        const headers = data[0]; // primeira linha: títulos das colunas
-        const registros = data.slice(1); // demais linhas: dados
-
-        registros.forEach(linha => {
-          const card = document.createElement('div');
-          card.className = 'client-card';
-
-          let conteudo = '<div class="client-summary">';
-          linha.forEach((valor, index) => {
-            const campo = headers[index];
-            conteudo += `<p><strong>${campo}:</strong> ${valor}</p>`;
-          });
-          conteudo += '</div>';
-
-          card.innerHTML = conteudo;
-          display.appendChild(card);
-        });
-      })
-      .catch(error => {
-        console.error('Erro ao carregar os dados:', error);
-      });
-  </script>
+  <script src="data-script.js"></script>
 </body>
 </html>
