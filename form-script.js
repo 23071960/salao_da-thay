@@ -13,7 +13,7 @@ document.getElementById('clientForm').addEventListener('submit', async function 
   formData.set('tipoCabelo', tipoCabelo); // substitui ou adiciona
 
   try {
-    const response = await fetch('https://script.google.com/macros/s/AKfycbxOsvbCJi2uk-r3PPI9lj4rCcr7LJgylPZayKv0sXdkikTiZnACSt99k6UHG5SgwtOc/exec', {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbyLCt-_kLK27IIshD1JlNY3q0LwpG9U5E7oASWOYN_2mK63XVqgK6f75Oxn0Jv3mkb5/exec', {
       method: 'POST',
       body: formData
       // Não use headers aqui, o navegador define automaticamente para FormData
