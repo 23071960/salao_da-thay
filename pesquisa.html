@@ -1,241 +1,168 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ficha de Autoestima - Salão da Thay</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <title>Formulário de Cliente - Salão da Thay</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
+
 <body>
-  <header class="main-header">
-    <div class="container">
-      <div class="logo-container">
-        <h1 class="logo">Salão da Thay</h1>
-        <p class="slogan">Realçando sua beleza natural</p>
-      </div>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <h1>Formulário de Cliente - Salão da Thay</h1>
+  <form id="form-cliente">
+    
+    <!-- Dados Pessoais -->
+    <fieldset>
+      <legend>Dados Pessoais</legend>
+      <label>Nome completo: <input type="text" name="nome" required></label><br>
+      <label>Telefone: <input type="tel" name="telefone" required></label><br>
+      <label>Data de nascimento: <input type="date" name="nascimento"></label><br>
+      <label>Endereço: <input type="text" name="endereco"></label>
+    </fieldset>
 
-  <main class="form-container">
-    <div class="form-header">
-      <h2>Ficha da Autoestima</h2>
-      <p>Nos conte mais sobre você para podermos oferecer o melhor atendimento</p>
-    </div>
+    <!-- Cabelo -->
+    <fieldset>
+      <legend>Cabelo</legend>
+      <label>Tipo de cabelo:<br>
+        <input type="radio" name="tipo-cabelo" value="Liso"> Liso
+        <input type="radio" name="tipo-cabelo" value="Ondulado"> Ondulado
+        <input type="radio" name="tipo-cabelo" value="Cacheado"> Cacheado
+        <input type="radio" name="tipo-cabelo" value="Crespo"> Crespo
+      </label><br>
 
-    <form id="clientForm" class="client-form">
-      <!-- Seção Dados Pessoais -->
-      <fieldset class="form-section">
-        <legend class="section-title">Dados Pessoais</legend>
-        
-        <div class="form-group">
-          <label for="clientName" class="form-label">Nome Completo:</label>
-          <input type="text" id="clientName" name="nome" class="form-input" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="clientContact" class="form-label">Endereço:</label>
-          <input type="text" id="clientContact" name="endereco" class="form-input">
-        </div>
+      <label>Estado atual:
+        <select name="estado-cabelo">
+          <option value="Natural">Natural</option>
+          <option value="Quimicamente tratado">Quimicamente tratado</option>
+          <option value="Tingido">Tingido</option>
+        </select>
+      </label><br>
 
-          <div class="form-group">
-          <label for="clientPhone" class="form-label">Telefone:</label>
-          <input type="text" id="clientPhone" name="telefone" class="form-input" maxlength="15">
-        </div>
+      <label>Deseja mudar a cor? 
+        <input type="radio" name="mudar-cor" value="Sim"> Sim
+        <input type="radio" name="mudar-cor" value="Não"> Não
+      </label><br>
 
-        <div class="form-group">
-          <label for="clientBirth" class="form-label">Data de Nascimento:</label>
-          <input type="date" id="clientBirth" name="dataNasc" class="form-input">
-        </div>
+      <label>Oleosidade:
+        <select name="oleosidade">
+          <option value="Seco">Seco</option>
+          <option value="Normal">Normal</option>
+          <option value="Oleoso">Oleoso</option>
+        </select>
+      </label><br>
 
-        <!-- <div class="form-group">
-          <label for="currentDate" class="form-label">Data de Hoje:</label>
-          <input type="date" id="currentDate" name="dataHoje" class="form-input">
-        </div> -->
-        
-      </fieldset>
+      <label>Textura:
+        <select name="textura">
+          <option value="Fina">Fina</option>
+          <option value="Média">Média</option>
+          <option value="Grossa">Grossa</option>
+        </select>
+      </label><br>
 
-      <!-- Seção Autoavaliação -->
-      <fieldset class="form-section">
-        <legend class="section-title">Autoavaliação</legend>
-        
-        <div class="form-group">
-          <p class="question-text">Faz exercícios físicos regularmente?</p>
-          <div class="radio-group">
-            <label class="radio-label"><input type="radio" name="exercicios" value="sim" class="radio-input" required> Sim</label>
-            <label class="radio-label"><input type="radio" name="exercicios" value="nao" class="radio-input" required> Não</label>
-          </div>
-        </div>
+      <label>Procedimento mais comum:
+        <select name="procedimento">
+          <option value="Corte">Corte</option>
+          <option value="Coloração">Coloração</option>
+          <option value="Alisamento">Alisamento</option>
+          <option value="Hidratação">Hidratação / Nutrição</option>
+          <option value="Outro">Outro</option>
+        </select>
+      </label>
+    </fieldset>
 
-        <div class="form-group">
-          <p class="question-text">Tem filhos?</p>
-          <div class="radio-group">
-            <label class="radio-label"><input type="radio" name="filhos" value="sim" class="radio-input" required> Sim</label>
-            <label class="radio-label"><input type="radio" name="filhos" value="nao" class="radio-input" required> Não</label>
-          </div>
-        </div>
+    <!-- Autoestima -->
+    <fieldset>
+      <legend>Autoestima e Emoções</legend>
+      <label>Como você se sente com sua aparência hoje? (1 a 5)
+        <input type="range" name="aparencia" min="1" max="5">
+      </label><br>
 
-        <div class="form-group">
-          <p class="question-text">Gosta do seu cabelo natural?</p>
-          <div class="radio-group">
-            <label class="radio-label"><input type="radio" name="cabeloNatural" value="sim" class="radio-input" required> Sim</label>
-            <label class="radio-label"><input type="radio" name="cabeloNatural" value="nao" class="radio-input" required> Não</label>
-          </div>
-        </div>
+      <label>Motivação ao vir ao salão:<br>
+        <input type="radio" name="motivacao" value="Beleza"> Me sentir mais bonita<br>
+        <input type="radio" name="motivacao" value="Relaxar"> Relaxar<br>
+        <input type="radio" name="motivacao" value="Evento"> Me preparar para um evento<br>
+        <input type="radio" name="motivacao" value="Autocuidado"> Cuidar de mim mesma<br>
+      </label><br>
 
-        <div class="form-group">
-          <p class="question-text">Costuma mudar a cor do seu cabelo?</p>
-          <div class="radio-group">
-            <label class="radio-label"><input type="radio" name="mudarCor" value="sim" class="radio-input" required> Sim</label>
-            <label class="radio-label"><input type="radio" name="mudarCor" value="nao" class="radio-input" required> Não</label>
-          </div>
-        </div>
-      </fieldset>
+      <label>Autoestima hoje (1 a 5):
+        <input type="range" name="autoestima" min="1" max="5">
+      </label><br>
 
-      <!-- Seção Características do Cabelo -->
-      <fieldset class="form-section">
-        <legend class="section-title">Características do Cabelo</legend>
-        
-        <div class="form-group">
-          <p class="question-text">Selecione os tipos que se aplicam ao seu cabelo:</p>
-          <div class="checkbox-grid">
-            <label class="checkbox-label"><input type="checkbox" name="tipoCabelo" value="liso" class="checkbox-input"> Liso</label>
-            <label class="checkbox-label"><input type="checkbox" name="tipoCabelo" value="ondulado" class="checkbox-input"> Ondulado</label>
-            <label class="checkbox-label"><input type="checkbox" name="tipoCabelo" value="cacheado" class="checkbox-input"> Cacheado</label>
-            <label class="checkbox-label"><input type="checkbox" name="tipoCabelo" value="crespo" class="checkbox-input"> Crespo</label>
-            <label class="checkbox-label"><input type="checkbox" name="tipoCabelo" value="espesso" class="checkbox-input"> Espesso</label>
-            <label class="checkbox-label"><input type="checkbox" name="tipoCabelo" value="oleoso" class="checkbox-input"> Oleoso</label>
-            <label class="checkbox-label"><input type="checkbox" name="tipoCabelo" value="seco" class="checkbox-input"> Seco</label>
-            <label class="checkbox-label"><input type="checkbox" name="tipoCabelo" value="fino" class="checkbox-input"> Fino</label>
-            <label class="checkbox-label"><input type="checkbox" name="tipoCabelo" value="muitoFino" class="checkbox-input"> Muito Fino</label>
-            <label class="checkbox-label"><input type="checkbox" name="tipoCabelo" value="normal" class="checkbox-input"> Normal</label>
-          </div>
-        </div>
+      <label>Quando foi a última vez que fez algo por você?
+        <select name="tempo-autocuidado">
+          <option value="Essa semana">Essa semana</option>
+          <option value="Último mês">Último mês</option>
+          <option value="Faz tempo">Faz tempo</option>
+        </select>
+      </label>
+    </fieldset>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="hairOiliness" class="form-label">Nível de Oleosidade:</label>
-            <input type="text" id="hairOiliness" name="oleosidade" class="form-input" placeholder="Ex: excessiva, normal, baixa">
-          </div>
+    <!-- Estilo e Preferências -->
+    <fieldset>
+      <legend>Personalidade e Estilo</legend>
+      <label>Você se define como:<br>
+        <input type="checkbox" name="estilo" value="Criativa"> Criativa
+        <input type="checkbox" name="estilo" value="Discreta"> Discreta
+        <input type="checkbox" name="estilo" value="Vaidosa"> Vaidosa
+        <input type="checkbox" name="estilo" value="Prática"> Prática
+      </label><br>
 
-          <div class="form-group">
-            <label for="hairTexture" class="form-label">Textura do Cabelo:</label>
-            <input type="text" id="hairTexture" name="textura" class="form-input" placeholder="Ex: lisa, ondulada, crespa">
-          </div>
-        </div>
-      </fieldset>
+      <label>Onde se sente mais feliz:
+        <select name="felicidade">
+          <option value="Cidade">Cidade</option>
+          <option value="Praia">Praia</option>
+          <option value="Campo">Campo</option>
+          <option value="Casa">Casa</option>
+        </select>
+      </label><br>
 
-      <!-- Seção Procedimentos e Cuidados -->
-      <fieldset class="form-section">
-        <legend class="section-title">Procedimentos e Cuidados</legend>
-        
-        <div class="form-group">
-          <label for="lastProcedure" class="form-label">Qual foi o último procedimento que fez no cabelo?</label>
-          <textarea id="lastProcedure" name="procedimento" class="form-textarea" rows="3" placeholder="Ex: tintura, corte, progressiva..."></textarea>
-        </div>
+      <label>Você gosta de:
+        <textarea name="gostos" placeholder="Ex: Música, conversar, silêncio..."></textarea>
+      </label>
+    </fieldset>
 
-        <div class="form-group">
-          <label for="hairCareRoutine" class="form-label">Descreva sua rotina de cuidados com o cabelo:</label>
-          <textarea id="hairCareRoutine" name="rotinaCuidados" class="form-textarea" rows="3" placeholder="Produtos que usa, frequência de lavagem..."></textarea>
-        </div>
+    <!-- Saúde e Hábitos -->
+    <fieldset>
+      <legend>Hábitos e Saúde</legend>
+      <label>Pratica exercícios?
+        <select name="exercicios">
+          <option value="Sim, regularmente">Sim, regularmente</option>
+          <option value="Às vezes">Às vezes</option>
+          <option value="Não">Não</option>
+        </select>
+      </label><br>
 
-        <div class="form-group">
-          <label for="lastHaircut" class="form-label">Quando foi seu último corte de cabelo?</label>
-          <input type="text" id="lastHaircut" name="ultimoCorte" class="form-input" placeholder="Ex: 3 meses atrás">
-        </div>
-      </fieldset>
+      <label>Tem filhos?
+        <input type="radio" name="tem-filhos" value="Sim"> Sim
+        <input type="radio" name="tem-filhos" value="Não"> Não
+      </label><br>
 
-      <!-- Seção Outras Informações -->
-      <fieldset class="form-section">
-        <legend class="section-title">Outras Informações</legend>
-        
-        <div class="form-group">
-          <label for="selfEsteemDefinition" class="form-label">Para você, o que é autoestima?</label>
-          <textarea id="selfEsteemDefinition" name="definicaoAutoestima" class="form-textarea" rows="3"></textarea>
-        </div>
+      <label>Possui alergia a produtos?
+        <input type="radio" name="alergia" value="Não"> Não
+        <input type="radio" name="alergia" value="Sim"> Sim
+        <input type="text" name="descricao-alergia" placeholder="Se sim, qual?">
+      </label><br>
 
-        <div class="form-row">
-          <div class="form-group">
-            <label for="favoriteMusic" class="form-label">Qual música você mais gosta de ouvir?</label>
-            <input type="text" id="favoriteMusic" name="musica" class="form-input">
-          </div>
+      <label>Frequência de ida ao salão:
+        <select name="frequencia-salao">
+          <option value="Semanal">Semanal</option>
+          <option value="Quinzenal">A cada 15 dias</option>
+          <option value="Mensal">Mensal</option>
+          <option value="Eventual">Eventualmente</option>
+        </select>
+      </label>
+    </fieldset>
 
-          <div class="form-group">
-            <label for="threeWords" class="form-label">Se descreva em 3 palavras:</label>
-            <input type="text" id="threeWords" name="tresPalavras" class="form-input" placeholder="Ex: alegre, determinada, criativa">
-          </div>
-        </div>
+    <!-- Expectativas -->
+    <fieldset>
+      <legend>Expectativas</legend>
+      <label>O que você espera do atendimento hoje?<br>
+        <textarea name="expectativa" rows="4" placeholder="Conte seus desejos, sentimentos ou necessidades..."></textarea>
+      </label>
+    </fieldset>
 
-        <div class="form-group">
-          <label for="whatBringsJoy" class="form-label">O que te traz alegria no dia a dia?</label>
-          <textarea id="whatBringsJoy" name="alegria" class="form-textarea" rows="2"></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="beachOrCountryside" class="form-label">Qual você prefere: Praia ou Campo?</label>
-          <input type="text" id="beachOrCountryside" name="preferencia" class="form-input">
-        </div>
-
-        <div class="form-group">
-          <label for="hairConcern" class="form-label">Qual seu maior incômodo com seu cabelo atualmente?</label>
-          <textarea id="hairConcern" name="incomodoCabelo" class="form-textarea" rows="2"></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="colorFeeling" class="form-label">Como você se sente em relação à cor atual do seu cabelo? Já pensou em mudar?</label>
-          <textarea id="colorFeeling" name="cor" class="form-textarea" rows="2"></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="salonExpectations" class="form-label">O que você espera do Salão da Thay?</label>
-          <textarea id="salonExpectations" name="expectativa" class="form-textarea" rows="3" placeholder="Seus desejos e expectativas para nossos serviços"></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="additionalInfo" class="form-label">Alguma outra informação que gostaria de compartilhar conosco?</label>
-          <textarea id="additionalInfo" name="informacoesAdicionais" class="form-textarea" rows="3"></textarea>
-        </div>
-      </fieldset>
-
-      <div class="form-submit">
-        <button type="submit" class="submit-button">Enviar Ficha</button>
-      </div>
-    </form>
-  </main>
-
-  <footer class="main-footer">
-    <div class="container">
-      <div class="footer-contact">
-        <h3>Contato</h3>
-        <p><i class="fas fa-map-marker-alt"></i> Rua da Beleza, 123 - Centro</p>
-        <p><i class="fas fa-phone"></i> (11) 98765-4321</p>
-        <p><i class="fas fa-envelope"></i> contato@salaodathay.com</p>
-      </div>
-      <div class="footer-hours">
-        <h3>Horário de Funcionamento</h3>
-        <p>Segunda a Sexta: 9h às 19h</p>
-        <p>Sábado: 9h às 15h</p>
-        <p>Domingo: Fechado</p>
-      </div>
-      <div class="footer-social">
-        <h3>Siga-nos</h3>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-whatsapp"></i></a>
-        </div>
-      </div>
-    </div>
-    <div class="copyright">
-      <p>&copy; 2025 Salão da Thay - Todos os direitos reservados</p>
-    </div>
-  </footer>
-
-  <script src="form-script.js"></script>
-  <script src="mcs_cel.js"></script>
+    <button type="submit">Enviar</button>
+  </form>
+  <script src="script.js"></script>
 </body>
 </html>
